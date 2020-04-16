@@ -112,7 +112,7 @@ class _MyAppState extends State<MyApp> {
                         stream: _stream,
                         builder: (context, snapshot) {
                           return GridView.builder(
-                            itemCount: snapshot.data,
+                            itemCount: snapshot.data['data'].length,
 
                             gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3),
@@ -130,7 +130,7 @@ class _MyAppState extends State<MyApp> {
                                 child: GestureDetector(
 
                                   onTap: () {
-                                    //print('clicked ${snapshot.data[index]['id']}');
+                                    print('clicked ${snapshot.data[index]['id']}');
                                     setState(() {
                                       selected = !selected;
 
@@ -152,15 +152,14 @@ class _MyAppState extends State<MyApp> {
                                               padding: const EdgeInsets.only(
                                                 top: 30,
                                               ),
-                                              child: new Text(
-                                                "hello"/*snapshot.data[index]['value']*/,
+                                              child: new Text(snapshot.data[index]['value'],
                                                 style: TextStyle(color:selected ? Colors.red : Colors.white),
                                               ),
                                             ),
                                             Container(
                                               //alignment: Alignment.center,
                                               //padding: const EdgeInsets.all(10.0),
-                                              child: new Text("hello"/*snapshot.data[index]['translation']*/,
+                                              child: new Text(snapshot.data[index]['translation'],
                                                 style: TextStyle(color:selected ? Colors.red : Colors.white),
                                               ),
                                             ),

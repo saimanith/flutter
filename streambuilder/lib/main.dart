@@ -40,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() {
-    _streamController;
-    //_streamController.sink.add(_counter++);
+    //_streamController;
+    _streamController.sink.add(_counter++);
   }
 
   @override
